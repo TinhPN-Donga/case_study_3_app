@@ -67,3 +67,64 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
+//
+// import 'package:case_study_3_app/string_accesstoken.dart';
+// import 'package:flutter/material.dart';
+// import 'package:mapbox_gl/mapbox_gl.dart';
+// import 'package:webview_flutter/webview_flutter.dart';
+//
+// void main() {
+//   runApp(const MyApp());
+// }
+//
+// class MyApp extends StatelessWidget {
+//   const MyApp({super.key});
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       title: 'Flutter Demo',
+//       theme: ThemeData(
+//         primarySwatch: Colors.blue,
+//       ),
+//       home: const MyHomePage(title: 'Flutter Demo Home Page'),
+//     );
+//   }
+// }
+//
+// class MyHomePage extends StatefulWidget {
+//   const MyHomePage({super.key, required this.title});
+//   final String title;
+//
+//   @override
+//   State<MyHomePage> createState() => _MyHomePageState();
+// }
+//
+// class _MyHomePageState extends State<MyHomePage> {
+//   late MapboxMapController mapController;
+//   var currentLocationNotifier = ValueNotifier(const LatLng(16, 108));
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(title: const Text('Flutter Simple Example')),
+//       body: ValueListenableBuilder<LatLng>(
+//         valueListenable: currentLocationNotifier,
+//         builder: (context, value, _) {
+//           return MapboxMap(
+//             styleString: StringDemoMap.styleMap,
+//             onMapCreated: (controller) => {
+//               mapController = controller,
+//             },
+//             initialCameraPosition: CameraPosition(
+//               target: value,
+//               zoom: 14,
+//             ),
+//             accessToken: StringDemoMap.accessToken,
+//           );
+//         },
+//       ),
+//     );
+//   }
+// }
