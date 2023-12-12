@@ -1,4 +1,6 @@
+import 'package:case_study_3_app/widgets/menu.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 void main() {
@@ -12,6 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -29,13 +32,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
   final controller = WebViewController()
     ..setJavaScriptMode(JavaScriptMode.unrestricted)
@@ -60,7 +57,14 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Flutter Simple Example')),
+      key: _scaffoldKey,
+      drawer: SizedBox(width: 250, child: Menu(scaffoldKey: _scaffoldKey)),
+      appBar: AppBar(title: const Text('Flutter Simple Example'),actions: [GestureDetector(
+        onTap: (){
+          print('Click Thông báo');
+        },
+        child: SvgPicture.asset('assets/svg/bell.svg',color: Colors.white,),
+      ), const SizedBox(width: 10.0,)]),
       body: WebViewWidget(
          controller: controller,
       ),
