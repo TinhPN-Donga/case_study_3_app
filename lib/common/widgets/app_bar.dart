@@ -53,14 +53,14 @@ class _MainAppBarState extends State<MainAppBar> {
                 widget.title ?? '',
               ),
         ),
-        leading: widget.isShowBack
-            ? GestureDetector(
-          onTap: widget.onBackButtonPressed ?? onBack,
-          child: const Icon(
-            Icons.menu,
-          ),
-        )
-            : const SizedBox(),
+        // leading: widget.isShowBack
+        //     ? GestureDetector(
+        //   onTap: widget.onBackButtonPressed ?? onBack,
+        //   child: const Icon(
+        //     Icons.menu,
+        //   ),
+        // )
+        //     : const SizedBox(),
         actions: widget.actions ?? [const SizedBox()],
       ),
     );

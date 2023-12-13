@@ -67,11 +67,8 @@ class _MenuState extends State<Menu> {
                     });
                     widget.scaffoldKey.currentState!.closeDrawer();
                     Navigator.push(
-                      context,
-                      PageRouteBuilder(
-                        pageBuilder: (context, animation, secondaryAnimation) =>
-                            ExampleWidget(title: menu[i].title),
-                      ),
+                        context,
+                        MaterialPageRoute(builder: (context) =>  ExampleWidget(title: menu[i].title),)
                     );
 
                     // Navigate to the corresponding page

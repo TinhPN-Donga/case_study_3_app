@@ -7,7 +7,7 @@ class ExampleWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MainAppBar(title: title),
+      appBar: MainAppBar(title: title,background: Colors.blue),
       body: Center(
         child: Text('Body $title'),
       ),

@@ -69,10 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
               print('Click Thông báo');
               Navigator.push(
                 context,
-                PageRouteBuilder(
-                  pageBuilder: (context, animation, secondaryAnimation) =>
-                      const ExampleWidget(title: 'Thông báo'),
-                ),
+                MaterialPageRoute(builder: (context) => const ExampleWidget(title: 'Thông báo'),)
               );
             },
             child: SvgPicture.asset(
