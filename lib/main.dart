@@ -1,4 +1,6 @@
-import 'package:case_study_3_app/widgets/menu.dart';
+import 'package:case_study_3_app/common/widgets/app_bar.dart';
+import 'package:case_study_3_app/common/widgets/menu.dart';
+import 'package:case_study_3_app/screens/example/example.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:webview_flutter/webview_flutter.dart';
@@ -13,7 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'App Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -59,14 +61,32 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       key: _scaffoldKey,
       drawer: SizedBox(width: 250, child: Menu(scaffoldKey: _scaffoldKey)),
-      appBar: AppBar(title: const Text('Flutter Simple Example'),actions: [GestureDetector(
-        onTap: (){
-          print('Click Thông báo');
-        },
-        child: SvgPicture.asset('assets/svg/bell.svg',color: Colors.white,),
-      ), const SizedBox(width: 10.0,)]),
+      appBar: MainAppBar(background: Colors.blue,
+        title: 'My App',
+        actions: [
+          GestureDetector(
+            onTap: () {
+              print('Click Thông báo');
+              Navigator.push(
+                context,
+                PageRouteBuilder(
+                  pageBuilder: (context, animation, secondaryAnimation) =>
+                      const ExampleWidget(title: 'Thông báo'),
+                ),
+              );
+            },
+            child: SvgPicture.asset(
+              'assets/svg/bell.svg',
+              color: Colors.white,
+            ),
+          ),
+          const SizedBox(
+            width: 10.0,
+          )
+        ],
+      ),
       body: WebViewWidget(
-         controller: controller,
+        controller: controller,
       ),
     );
   }

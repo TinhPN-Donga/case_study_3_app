@@ -1,6 +1,7 @@
 // ignore_for_file: library_private_types_in_public_api, deprecated_member_use
 
 import 'package:case_study_3_app/models/menu_modal.dart';
+import 'package:case_study_3_app/screens/example/example.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
@@ -65,6 +66,13 @@ class _MenuState extends State<Menu> {
                       selected = i;
                     });
                     widget.scaffoldKey.currentState!.closeDrawer();
+                    Navigator.push(
+                      context,
+                      PageRouteBuilder(
+                        pageBuilder: (context, animation, secondaryAnimation) =>
+                            ExampleWidget(title: menu[i].title),
+                      ),
+                    );
 
                     // Navigate to the corresponding page
                     switch (i) {
@@ -75,19 +83,14 @@ class _MenuState extends State<Menu> {
                         // );
                         break;
                       case 1:
-
                         break;
                       case 2:
-
                         break;
                       case 3:
-
                         break;
                       case 4:
-
                         break;
                       case 5:
-
                         break;
                       case 6:
                         break;
